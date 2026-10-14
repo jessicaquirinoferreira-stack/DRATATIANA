@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  --color-gold-50: #fbf8eb;
+  --color-gold-100: #f5eed1;
+  --color-gold-200: #ecdda3;
+  --color-gold-300: #dfc56e;
+  --color-gold-400: #d4b142;
+  --color-gold-500: #c9a227;
+  --color-gold-600: #b0851e;
+  --color-gold-700: #8c631a;
+  --color-gold-800: #734f1b;
+  --color-gold-900: #60421c;
+
+  --color-charcoal-950: #0a0c0e;
+  --color-charcoal-900: #0f1215;
+  --color-charcoal-800: #161b20;
+  --color-charcoal-700: #21272e;
+  --color-charcoal-600: #303841;
+
+  --color-warm-50: #fcfbf8;
+  --color-warm-100: #f7f4ee;
+  --color-warm-200: #efe9df;
+  --color-warm-300: #e3d9c8;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-serif);
+}
+
+/* Luxury gold text gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF6D6 0%, #E6C875 35%, #C9A227 70%, #FFF1BE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-subtle {
+  background: linear-gradient(135deg, #EAD7A5 0%, #C9A227 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism luxury styles */
+.glass-panel-dark {
+  background: rgba(22, 27, 32, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(237, 230, 220, 0.8);
+}
+
+/* Shimmer ray animation */
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.22),
+    transparent
+  );
+  animation: shimmer-sweep 3.5s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* Infinite Marquee */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Glow Breathe */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.06);
+  }
+}
+
+.animate-glow {
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+
+/* Subtle smooth transitions */
+button, a {
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f1215;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9a227;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #dfc56e;
+}
